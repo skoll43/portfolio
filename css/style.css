@@ -451,6 +451,135 @@ body {
     box-shadow: var(--shadow-sm);
 }
 
+/* Certifications Styles */
+.certification-category {
+    grid-column: 1 / -1; /* Ocupa toda la fila */
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.cert-card {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    height: fit-content;
+}
+
+.cert-card.preparing {
+    border-left-color: var(--warning-color);
+}
+
+.cert-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.cert-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cert-badge {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.cert-card.preparing .cert-badge {
+    background: linear-gradient(135deg, var(--warning-color), #ff6b35);
+}
+
+.cert-title h4 {
+    color: var(--text-primary);
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.cert-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.cert-description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.cert-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-tag.mini {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    font-weight: 500;
+}
+
+.cert-status {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.cert-status.earned {
+    color: var(--success-color);
+}
+
+.cert-status.preparing {
+    color: var(--warning-color);
+}
+
+@media (max-width: 768px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cert-card {
+        padding: 1rem;
+    }
+    
+    .cert-header {
+        gap: 0.75rem;
+    }
+    
+    .cert-badge {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
 /* Projects Section */
 .projects {
     padding: 6rem 0;
