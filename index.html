@@ -61,7 +61,9 @@
             </div>
             <div class="hero-image">
                 <div class="hero-avatar">
-                    <img src="images/profile-placeholder.jpg" alt="Lukas Lee Navarro" class="avatar-img">
+                    <div class="avatar-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -246,15 +248,8 @@
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
-                            <span class="contact-label">Email</span>
-                            <a href="mailto:lukasofkonoha@gmail.com" class="contact-value">lukasofkonoha@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <span class="contact-label">Teléfono</span>
-                            <a href="tel:+56978601766" class="contact-value">+56 9 7860 1766</a>
+                            <span class="contact-label">Email Profesional</span>
+                            <a href="mailto:avgmss6qu@mozmail.com" class="contact-value">avgmss6qu@mozmail.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -271,6 +266,33 @@
                             <a href="https://linkedin.com/in/lukas-lee" target="_blank" class="contact-value">linkedin.com/in/lukas-lee</a>
                         </div>
                     </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <span class="contact-label">GitHub</span>
+                            <a href="https://github.com/skoll43" target="_blank" class="contact-value">github.com/skoll43</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form for extra privacy -->
+                <div class="contact-form-section">
+                    <h3>¿Prefieres contactarme directamente?</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Tu email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="company" name="company" placeholder="Empresa (opcional)">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" placeholder="Tu mensaje..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -280,6 +302,9 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Lukas Lee Navarro. Desarrollado con ❤️ para GitHub Pages.</p>
+            <div class="footer-privacy">
+                <small>🔒 Información personal protegida - Solo contacto profesional</small>
+            </div>
         </div>
     </footer>
 

@@ -91,7 +91,7 @@ animatedElements.forEach(el => {
     observer.observe(el);
 });
 
-// Dynamic typing effect for hero title (optional)
+// Dynamic typing effect for hero title
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.innerHTML = '';
@@ -114,6 +114,55 @@ window.addEventListener('load', () => {
         const originalText = heroName.textContent;
         typeWriter(heroName, originalText, 150);
     }
+});
+
+// Contact Form Handler (Privacy-focused)
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const company = formData.get('company');
+    const message = formData.get('message');
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`Mensaje de ${name} - ${company || 'Consulta Profesional'}`);
+    const body = encodeURIComponent(
+        `Hola Lukas,\n\n` +
+        `${message}\n\n` +
+        `Saludos,\n${name}\n` +
+        `Email: ${email}\n` +
+        `${company ? `Empresa: ${company}` : ''}`
+    );
+    
+    const mailtoLink = `mailto:avgmss6qu@mozmail.com?subject=${subject}&body=${body}`;
+    
+    // Show success message
+    const submitButton = this.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    
+    submitButton.textContent = '✅ ¡Abriendo cliente de email!';
+    submitButton.style.background = '#10b981';
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+    
+    // Reset form
+    setTimeout(() => {
+        this.reset();
+        submitButton.textContent = originalText;
+        submitButton.style.background = '';
+    }, 3000);
+});
+
+// Privacy protection - obfuscate email display
+document.addEventListener('DOMContentLoaded', function() {
+    const emailElements = document.querySelectorAll('a[href^="mailto:avgmss6qu"]');
+    emailElements.forEach(element => {
+        // Add privacy indicator
+        element.setAttribute('title', 'Email temporal para proteger privacidad');
+    });
 });
 
 // Scroll progress indicator
@@ -139,48 +188,6 @@ function createScrollProgress() {
 
 // Initialize scroll progress
 createScrollProgress();
-
-// Contact form validation (if you add a contact form later)
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-// Utility function to throttle scroll events
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    }
-}
-
-// Theme toggle functionality (for future dark mode)
-function initThemeToggle() {
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-            localStorage.setItem('theme', 
-                document.body.classList.contains('dark-theme') ? 'dark' : 'light'
-            );
-        });
-        
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-theme');
-        }
-    }
-}
-
-// Initialize theme toggle
-initThemeToggle();
 
 // Stats counter animation
 function animateCounters() {
@@ -223,98 +230,67 @@ if (statsSection) {
     statsObserver.observe(statsSection);
 }
 
-// Copy to clipboard functionality for contact info
-function initCopyToClipboard() {
-    const copyElements = document.querySelectorAll('[data-copy]');
-    
-    copyElements.forEach(element => {
-        element.addEventListener('click', async (e) => {
-            e.preventDefault();
-            const textToCopy = element.getAttribute('data-copy') || element.textContent;
-            
-            try {
-                await navigator.clipboard.writeText(textToCopy);
-                
-                // Show feedback
-                const originalText = element.textContent;
-                element.textContent = '¡Copiado!';
-                element.style.color = '#10b981';
-                
-                setTimeout(() => {
-                    element.textContent = originalText;
-                    element.style.color = '';
-                }, 2000);
-            } catch (err) {
-                console.error('Error copying to clipboard:', err);
-            }
-        });
-    });
-}
-
-// Initialize copy to clipboard
-initCopyToClipboard();
-
-// Lazy loading for images
-function initLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.getAttribute('data-src');
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// Initialize lazy loading
-initLazyLoading();
-
-// Performance optimization: Use passive listeners for scroll events
-const scrollEvents = throttle(() => {
-    // Scroll-related functions here
-}, 16);
-
-window.addEventListener('scroll', scrollEvents, { passive: true });
-
-// Console easter egg
+// Console security message
 console.log(`
     ╔══════════════════════════════════════════════════════════╗
     ║                                                          ║
-    ║   👋 ¡Hola! Soy Lukas Lee Navarro                       ║
+    ║   🛡️  PORTFOLIO SEGURO - LUKAS LEE NAVARRO             ║
     ║                                                          ║
+    ║   🔒 Información personal protegida                      ║
+    ║   📧 Email temporal para contacto profesional           ║
     ║   🚀 Estudiante de Ingeniería en Redes                  ║
     ║   💻 Apasionado por DevOps y Automatización             ║
-    ║   📧 lukasofkonoha@gmail.com                            ║
-    ║   🐙 github.com/skoll43                                 ║
     ║                                                          ║
-    ║   ¿Interesado en mi perfil? ¡Contactemos!              ║
+    ║   ¿Interesado en mi perfil? ¡Usa el formulario!        ║
     ║                                                          ║
     ╚══════════════════════════════════════════════════════════╝
 `);
 
-// Service Worker registration for offline functionality (optional)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-                console.log('SW registered: ', registration);
-            })
-            .catch(registrationError => {
-                console.log('SW registration failed: ', registrationError);
-            });
-    });
+// Performance optimization: Use passive listeners for scroll events
+const throttle = (func, limit) => {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+const scrollEvents = throttle(() => {
+    // Scroll-related functions are already handled above
+}, 16);
+
+window.addEventListener('scroll', scrollEvents, { passive: true });
+
+// Lazy loading placeholder for avatar
+const avatarPlaceholder = document.querySelector('.avatar-placeholder');
+if (avatarPlaceholder) {
+    // Add subtle animation to the user icon
+    avatarPlaceholder.style.animation = 'pulse 2s ease-in-out infinite alternate';
+    
+    // Add CSS for pulse animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes pulse {
+            from { opacity: 0.6; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.05); }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Privacy notice for developers
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    console.warn('🚨 DESARROLLO LOCAL: Recuerda no incluir información personal sensible en producción');
 }
 
 // Export functions for potential module use
 window.PortfolioJS = {
     typeWriter,
-    validateEmail,
     throttle,
     animateCounters
 };
