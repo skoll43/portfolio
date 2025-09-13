@@ -412,6 +412,130 @@ body {
     font-weight: 500;
 }
 
+/* Experience Section */
+.experience {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+}
+
+.experience-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: 200px;
+    top: 0;
+    bottom: -3rem;
+    width: 2px;
+    background: var(--primary-color);
+    margin-left: -1rem;
+}
+
+.experience-item::after {
+    content: '';
+    position: absolute;
+    left: 200px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    margin-left: -6px;
+}
+
+.experience-date {
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.experience-date span {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.experience-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-content:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.experience-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.experience-company {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.experience-location {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.experience-project {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.experience-project h5 {
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.experience-responsibilities {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-responsibilities li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.experience-responsibilities li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
 /* Skills Section */
 .skills {
     padding: 4rem 0;
@@ -646,6 +770,26 @@ body {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
+    }
+    
+    /* Experience responsive */
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .experience-item::before,
+    .experience-item::after {
+        display: none;
+    }
+    
+    .experience-date {
+        text-align: left;
+        padding-right: 0;
+    }
+    
+    .experience-content {
+        padding: 1.5rem;
     }
 }
 
