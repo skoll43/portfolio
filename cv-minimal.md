@@ -1,14 +1,14 @@
 ---
 layout: cv
 title: CV - Lukas Lee
-description: Estudiante de Ingeniería en Redes • Buscando Práctica Profesional
+description: Asistente de Informática • Estudiante de Ingeniería en Redes
 permalink: /cv/
 ---
 
 <img src="./images/lukas.jpg" alt="Lukas Lee" style="width: 120px; height: 120px; border-radius: 50%; float: right; margin-left: 2rem; margin-bottom: 1rem; object-fit: cover;">
 
 # Lukas Lee
-## Estudiante de Ingeniería en Redes • Buscando Práctica Profesional
+## Asistente de Informática • Estudiante de Ingeniería en Redes
 
 **Contacto:** [avgmss6qu@mozmail.com](mailto:avgmss6qu@mozmail.com) • [GitHub](https://github.com/skoll43) • [Credly](https://www.credly.com/users/lukaslee/badges)
 
@@ -21,6 +21,22 @@ Soy estudiante de último año de Ingeniería en Conectividad y Redes en DUOC UC
 Mi experiencia incluye proyectos prácticos con Python, Docker, y configuración de equipos Cisco. He desarrollado scripts de automatización, pipelines CI/CD básicos y simuladores de sistemas de red.
 
 Actualmente busco una práctica profesional donde pueda aplicar mis conocimientos teóricos, aprender de profesionales experimentados y contribuir al crecimiento de la organización.
+
+## Experiencia Laboral
+
+### Asistente de Informática
+**INGEMAS · Autónomo** - *Agosto 2025 - Actualidad (2 meses)*  
+Bio Bío, Chile · Presencial
+
+**Proyecto Aplicación PISA 2025** - Licitación ID: 721703-2-LR25
+
+- Asistencia informática en PISA 2025 (prueba OCDE), primera implementación online síncrona
+- Catastro de infraestructura de redes y diagnóstico de sistemas en establecimientos educacionales
+- Preparación y configuración de equipos informáticos y servidores
+- Optimización de redes y automatización con scripts
+- Viajes a distintas ciudades del Biobío para evaluación de infraestructura
+- Apoyo técnico durante las jornadas de aplicación de la prueba
+- Alta coordinación y colaboración en equipo para asegurar el éxito del proyecto
 
 ## Educación
 
